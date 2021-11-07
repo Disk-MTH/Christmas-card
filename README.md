@@ -1,8 +1,8 @@
 # Christmas card
-This project is under development, so it is not complete. All that is indicated below is therefore not yet contractual.
+This project is under development, so it is not complete. All that is indicated below is therefore not yet contractual. To launch the app you have just to double click on "start.bat" or launch "Main.py" with python.
 
 ## Presentation
-This github repository is a project resulting from a work requested in court. The exercise was to make a little Christmas card drawn with a turtle but, the project being really simple, I decided to do things my way (while answering the basic exercise of course). In this projects I therefore use turtle for the drawing, tkinter for the GUI and (I don't know for the sound yet).
+This github repository is a project resulting from a work requested in court. The exercise was to make a little Christmas card drawn with a turtle but, the project being really simple, I decided to do things my way (while answering the basic exercise of course). In this projects I therefore use turtle for the drawing, tkinter for the GUI, (I don't know) for sounds and python 3.10.0.
 
 ## License
 All the files in this repository are completely free of rights (see the [license](https://github.com/Disk-MTH/Christmas-card/blob/master/license.txt)) so you can grab the images, the code ... and do whatever you want with them (just respect the [license](https://github.com/Disk-MTH/Christmas-card/blob/master/license.txt)).

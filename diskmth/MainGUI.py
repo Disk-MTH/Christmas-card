@@ -1,5 +1,5 @@
 from tkinter import *
-from fr.diskmth.christmascard.src.utils import Utils
+import Utils
 
 
 def mainGUI():

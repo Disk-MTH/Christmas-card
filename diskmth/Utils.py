@@ -1,0 +1,3 @@
+
+def getResourcesPath() :
+    return "resources"
