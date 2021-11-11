@@ -1,3 +1,3 @@
 @echo off
-cd %~dp0\diskmth
+cd %cd%\diskmth
 python Main.py
