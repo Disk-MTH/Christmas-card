@@ -1,21 +1,12 @@
 from tkinter import *
-import Utils
 import MainGUI
+import Utils
 
 is_music_enable = True
-if Utils.getSettingValue("music") == "enable":
-    is_music_enable = True
-elif Utils.getSettingValue("music") == "disable":
-    is_music_enable = False
-
 are_sound_effects_enable = True
-if Utils.getSettingValue("sound_effects") == "enable":
-    are_sound_effects_enable = True
-elif Utils.getSettingValue("sound_effects") == "disable":
-    are_sound_effects_enable = False
 
 def configGUI():
-    #                      Create frame and init song                        #
+    #                            Create frame                               #
 
     root = Tk()
 
@@ -23,6 +14,18 @@ def configGUI():
 
     lastClickX = 0
     lastClickY = 0
+
+    global is_music_enable
+    if Utils.getSettingValue("music") == "enable":
+        is_music_enable = True
+    elif Utils.getSettingValue("music") == "disable":
+        is_music_enable = False
+
+    global are_sound_effects_enable
+    if Utils.getSettingValue("music") == "enable":
+        are_sound_effects_enable = True
+    elif Utils.getSettingValue("sound_effects") == "disable":
+        are_sound_effects_enable = False
 
     backgroundPicture = PhotoImage(file=Utils.getResourcesPath() + "\\config_background.png")
     titleBarPicture = PhotoImage(file=Utils.getResourcesPath() + "\\config_title_bar.png")
@@ -85,6 +88,9 @@ def configGUI():
                 return soundOnPicture
             else:
                 return soundOffPicture
+
+    def resetConfig():
+        Utils.resetConfig()
 
     #                      Set frame basics parameters                       #
 

@@ -14,12 +14,11 @@ the basic exercise of course). In this projects I therefore use turtle for the
 drawing, tkinter for the GUI, pygame for sounds, threading for concurrent 
 programming, all under python 3.10.0. I have also added a settings backup 
 system, so when you reopen the app after changing your settings, they will be 
-kept.
-
-## License
-All the files in this repository are completely free of rights (see the [license](https://github.com/Disk-MTH/Christmas-card/blob/master/license.txt)) so 
-you can grab the images, the code ... and do whatever you want with them (just 
-respect the [license](https://github.com/Disk-MTH/Christmas-card/blob/master/license.txt)).
+kept. In addition, the configuration is self-checked so if you ever modify the file 
+anyhow, or delete it the default settings will be reset. The application is also 
+multi-threaded: the image, the sound and the configuration management 
+system are completely independent in their operation but if the GUI thread stops 
+(when you close the application), everything is stops.
 
 ## Informations
 So that you can recover the background image, that you can modify and 
@@ -35,6 +34,11 @@ MainGUI :
 ConfigGUI :
 
 ![Screenshot 2](pictures/config_gui.png)
+
+## License
+All the files in this repository are completely free of rights (see the [license](https://github.com/Disk-MTH/Christmas-card/blob/master/license.txt)) so 
+you can grab the images, the code ... and do whatever you want with them (just 
+respect the [license](https://github.com/Disk-MTH/Christmas-card/blob/master/license.txt)).
 
 Thanks for reading and good development!
 
