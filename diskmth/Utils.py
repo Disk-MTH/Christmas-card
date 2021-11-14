@@ -8,49 +8,76 @@ def getResourcesPath() :
 def getSettingValue(settingToGet) :
     with open(getResourcesPath() + "\\settings.txt", "r") as file:
         lines = file.read().split()
-    if settingToGet == "music":
-        return lines[2]
-    elif settingToGet == "sound_effects":
-        return lines[6]
-    elif settingToGet == "volume":
-        return lines[9]
+        if settingToGet == "music":
+            if lines[2] == "enable":
+                return True
+            elif lines[2] == "disable":
+                return False
+        elif settingToGet == "sound_effects":
+            if lines[6] == "enable":
+                return True
+            elif lines[6] == "disable":
+                return False
+        elif settingToGet == "volume":
+            return str(lines[9])
 
-def setSettingValue(settingToSet, toggleType):
+def setSettingValue(settingToSet, value):
     with open(getResourcesPath() + "\\settings.txt", "rt") as file:
         fileContent = file.read()
 
     if settingToSet == "music":
-        if toggleType == "turnOn":
+        if value == "toggleOn":
             with open(getResourcesPath() + "\\settings.txt", "wt") as file:
                 fileContent = fileContent.replace("music : disable", "music : enable")
                 file.write(fileContent)
-        elif toggleType == "turnOff":
+        elif value == "toggleOff":
             with open(getResourcesPath() + "\\settings.txt", "wt") as file:
                 fileContent = fileContent.replace("music : enable", "music : disable")
                 file.write(fileContent)
 
     elif settingToSet == "sound_effects":
-        if toggleType == "turnOn":
+        if value == "toggleOn":
             with open(getResourcesPath() + "\\settings.txt", "wt") as file:
                 fileContent = fileContent.replace("sound effects : disable", "sound effects : enable")
                 file.write(fileContent)
-        elif toggleType == "turnOff":
+        elif value == "toggleOff":
             with open(getResourcesPath() + "\\settings.txt", "wt") as file:
                 fileContent = fileContent.replace("sound effects : enable", "sound effects : disable")
                 file.write(fileContent)
 
+    elif settingToSet == "volume":
+        with open(getResourcesPath() + "\\settings.txt", "r") as file:
+            lines = file.read().split()
+            volume = lines[9]
+            with open(getResourcesPath() + "\\settings.txt", "wt") as file:
+                fileContent = fileContent.replace("volume : " + str(volume), "volume : " + str(value))
+                file.write(fileContent)
+
 def resetConfig():
     with open(getResourcesPath() + "\\settings.txt", "wt") as file:
-        defaultSettings = ["music : enable\n", "sound effects : enable\n", "volume : 100\n"]
+        defaultSettings = ["music : enable\n", "sound effects : enable\n", "volume : 80\n"]
         index = 0
         for i in range(len(defaultSettings)):
             lineToWrite = defaultSettings[index]
             file.write(lineToWrite)
             index += 1
 
+def buttonClick(nameOfButton):
+    click_sound = pygame.mixer.Sound(getResourcesPath() + "\\sounds\\click_sound.mp3")
+    if getSettingValue("sound_effects"):
+        if "day" in nameOfButton:
+            click_sound.play()
+        else:
+            click_sound.play()
+
+    elif not getSettingValue("sound_effects"):
+        if "day" in nameOfButton:
+            pass
+        else:
+            pass
+
 def launchGUI():
     MainGUI.mainGUI()
-
 
 def launchSounds(GUIThread):
     isMusicActive = False
@@ -65,7 +92,7 @@ def launchSounds(GUIThread):
             isMusicActive = False
         sleep(0.25)
 
-def testConfig(GUIThread):
+def checkConfig(GUIThread):
     while GUIThread.is_alive():
         with open(getResourcesPath() + "\\settings.txt", "r") as file:
             lines = file.read().split()

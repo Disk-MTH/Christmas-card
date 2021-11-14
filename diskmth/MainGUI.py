@@ -57,14 +57,17 @@ def mainGUI():
         root.overrideredirect(True)
 
     def reduceFrame():
+        Utils.buttonClick("button_reduce")
         root.state('withdrawn')
         root.overrideredirect(False)
         root.state('iconic')
 
     def closeFrame():
+        Utils.buttonClick("button_close")
         root.destroy()
 
     def openConfig():
+        Utils.buttonClick("button_config")
         closeFrame()
         ConfigGUI.configGUI()
 
@@ -83,96 +86,96 @@ def mainGUI():
     background = Label(image=backgroundPicture, width=1000, height=650, bd=0)
     background.place(x=0, y=0)
 
-    title_bar = Label(image=titleBarPicture, width=1000, height=45, bd=0)
-    title_bar.place(x=0, y=0)
+    titleBar = Label(image=titleBarPicture, width=1000, height=45, bd=0)
+    titleBar.place(x=0, y=0)
 
     credits = Label(image=creditsPicture, width=198, height=50, bd=0)
     credits.place(x=800, y=600)
 
-    move_area = Label(image=movePicture, width=43, height=43, bd=0)
-    move_area.place(x=0, y=0)
-    move_area.bind("<B1-Motion>", moveFrame)
+    moveArea = Label(image=movePicture, width=43, height=43, bd=0)
+    moveArea.place(x=0, y=0)
+    moveArea.bind("<B1-Motion>", moveFrame)
 
-    button_config = Button(image=configPicture, bd=0, highlightthickness=0, padx=35, pady=40, command=openConfig)
-    button_config.place(x=875, y=0)
+    buttonConfig = Button(image=configPicture, bd=0, highlightthickness=0, padx=35, pady=40, command=openConfig)
+    buttonConfig.place(x=875, y=0)
 
-    button_reduce = Button(image=reducePicture, bd=0, highlightthickness=0, padx=45, pady=40, command=reduceFrame)
-    button_reduce.place(x=915, y=0)
+    buttonReduce = Button(image=reducePicture, bd=0, highlightthickness=0, padx=45, pady=40, command=reduceFrame)
+    buttonReduce.place(x=915, y=0)
 
-    button_close = Button(image=closePicture, bd=0, highlightthickness=0, padx=40, pady=40, command=closeFrame)
-    button_close.place(x=960, y=0)
+    buttonClose = Button(image=closePicture, bd=0, highlightthickness=0, padx=40, pady=40, command=closeFrame)
+    buttonClose.place(x=960, y=0)
 
-    button_day_1 = createAButton(day1Picture)
-    button_day_1.place(x=547, y=68)
+    buttonDay1 = createAButton(day1Picture)
+    buttonDay1.place(x=547, y=68)
 
-    button_day_2 = createAButton(day2Picture)
-    button_day_2.place(x=48, y=213)
+    buttonDay2 = createAButton(day2Picture)
+    buttonDay2.place(x=48, y=213)
 
-    button_day_3 = createAButton(day3Picture)
-    button_day_3.place(x=214, y=213)
+    buttonDay3 = createAButton(day3Picture)
+    buttonDay3.place(x=214, y=213)
 
-    button_day_4 = createAButton(day4Picture)
-    button_day_4.place(x=381, y=362)
+    buttonDay4 = createAButton(day4Picture)
+    buttonDay4.place(x=381, y=362)
 
-    button_day_5 = createAButton(day5Picture)
-    button_day_5.place(x=381, y=511)
+    buttonDay5 = createAButton(day5Picture)
+    buttonDay5.place(x=381, y=511)
 
-    button_day_6 = createAButton(day6Picture)
-    button_day_6.place(x=548, y=218)
+    buttonDay6 = createAButton(day6Picture)
+    buttonDay6.place(x=548, y=218)
 
-    button_day_7 = createAButton(day7Picture)
-    button_day_7.place(x=712, y=67)
+    buttonDay7 = createAButton(day7Picture)
+    buttonDay7.place(x=712, y=67)
 
-    button_day_8 = createAButton(day8Picture)
-    button_day_8.place(x=547, y=360)
+    buttonDay8 = createAButton(day8Picture)
+    buttonDay8.place(x=547, y=360)
 
-    button_day_9 = createAButton(day9Picture)
-    button_day_9.place(x=214, y=506)
+    buttonDay9 = createAButton(day9Picture)
+    buttonDay9.place(x=214, y=506)
 
-    button_day_10 = createAButton(day10Picture)
-    button_day_10.place(x=712, y=360)
+    buttonDay10 = createAButton(day10Picture)
+    buttonDay10.place(x=712, y=360)
 
-    button_day_11 = createAButton(day11Picture)
-    button_day_11.place(x=48, y=506)
+    buttonDay11 = createAButton(day11Picture)
+    buttonDay11.place(x=48, y=506)
 
-    button_day_12 = createAButton(day12Picture)
-    button_day_12.place(x=880, y=219)
+    buttonDay12 = createAButton(day12Picture)
+    buttonDay12.place(x=880, y=219)
 
-    button_day_13 = createAButton(day13Picture)
-    button_day_13.place(x=880, y=360)
+    buttonDay13 = createAButton(day13Picture)
+    buttonDay13.place(x=880, y=360)
 
-    button_day_14 = createAButton(day14Picture)
-    button_day_14.place(x=713, y=214)
+    buttonDay14 = createAButton(day14Picture)
+    buttonDay14.place(x=713, y=214)
 
-    button_day_15 = createAButton(day15Picture)
-    button_day_15.place(x=380, y=67)
+    buttonDay15 = createAButton(day15Picture)
+    buttonDay15.place(x=380, y=67)
 
-    button_day_16 = createAButton(day16Picture)
-    button_day_16.place(x=213, y=358)
+    buttonDay16 = createAButton(day16Picture)
+    buttonDay16.place(x=213, y=358)
 
-    button_day_17 = createAButton(day17Picture)
-    button_day_17.place(x=879, y=67)
+    buttonDay17 = createAButton(day17Picture)
+    buttonDay17.place(x=879, y=67)
 
-    button_day_18 = createAButton(day18Picture)
-    button_day_18.place(x=49, y=361)
+    buttonDay18 = createAButton(day18Picture)
+    buttonDay18.place(x=49, y=361)
 
-    button_day_19 = createAButton(day19Picture)
-    button_day_19.place(x=381, y=213)
+    buttonDay19 = createAButton(day19Picture)
+    buttonDay19.place(x=381, y=213)
 
-    button_day_20 = createAButton(day20Picture)
-    button_day_20.place(x=214, y=68)
+    buttonDay20 = createAButton(day20Picture)
+    buttonDay20.place(x=214, y=68)
 
-    button_day_21 = createAButton(day21Picture)
-    button_day_21.place(x=48, y=68)
+    buttonDay21 = createAButton(day21Picture)
+    buttonDay21.place(x=48, y=68)
 
-    button_day_22 = createAButton(day22Picture)
-    button_day_22.place(x=712, y=506)
+    buttonDay22 = createAButton(day22Picture)
+    buttonDay22.place(x=712, y=506)
 
-    button_day_23 = createAButton(day23Picture)
-    button_day_23.place(x=877, y=505)
+    buttonDay23 = createAButton(day23Picture)
+    buttonDay23.place(x=877, y=505)
 
-    button_day_24 = createAButton(day24Picture)
-    button_day_24.place(x=547, y=510)
+    buttonDay24 = createAButton(day24Picture)
+    buttonDay24.place(x=547, y=510)
 
     #                             Loop the frame                              #
 
