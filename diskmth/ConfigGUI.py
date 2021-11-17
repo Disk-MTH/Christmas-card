@@ -69,7 +69,7 @@ def configGUI():
             button_toggle_sound_effects.config(image=soundOffPicture)
 
         volume_control.set(Utils.getSettingValue("volume"))
-        volume_value.config(text=Utils.getSettingValue("volume"))
+        volume_value.config(text=Utils.getSettingValue("volume") + " %")
 
     def toggleMusic():
         Utils.buttonClick("button_toggle_music")
@@ -91,7 +91,7 @@ def configGUI():
 
     def setVolume(volume):
         Utils.setSettingValue("volume", str(volume))
-        volume_value.config(text=Utils.getSettingValue("volume"))
+        volume_value.config(text=Utils.getSettingValue("volume") + " %")
 
     def getPictureForButton(buttonName):
         if buttonName == "music":
@@ -142,7 +142,7 @@ def configGUI():
     volume = Label(text="Volume : ", font=("Segoe Script", 8), bd=0, bg="white")
     volume.place(x=25, y=160)
 
-    volume_value = Label(text=Utils.getSettingValue("volume"), font=("Segoe Script", 8), bd=0, bg="white")
+    volume_value = Label(text=Utils.getSettingValue("volume") + " %", font=("Segoe Script", 8), bd=0, bg="white")
     volume_value.place(x=80, y=160)
 
     button_reduce = Button(image=reducePicture, bd=0, highlightthickness=0, padx=32, pady=28, command=reduceFrame)
