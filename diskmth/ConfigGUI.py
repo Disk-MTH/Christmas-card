@@ -43,7 +43,7 @@ def configGUI():
         x, y = event.x - lastClickX + root.winfo_x(), event.y - lastClickY + root.winfo_y()
         root.geometry("+%s+%s" % (x, y))
 
-    def mappedFrame(event=None):
+    def mappedFrame(event):
         root.overrideredirect(True)
 
     def reduceFrame():
@@ -69,6 +69,7 @@ def configGUI():
             button_toggle_sound_effects.config(image=soundOffPicture)
 
         volume_control.set(Utils.getSettingValue("volume"))
+        volume_value.config(text=Utils.getSettingValue("volume"))
 
     def toggleMusic():
         Utils.buttonClick("button_toggle_music")
@@ -89,8 +90,8 @@ def configGUI():
             Utils.setSettingValue("sound_effects", "toggleOn")
 
     def setVolume(volume):
-        Utils.buttonClick("volume_control")
         Utils.setSettingValue("volume", str(volume))
+        volume_value.config(text=Utils.getSettingValue("volume"))
 
     def getPictureForButton(buttonName):
         if buttonName == "music":
@@ -135,11 +136,14 @@ def configGUI():
     toggle_sound_effects = Label(image=toggleSoundEffectsPicture, width=115, height=20, bd=0)
     toggle_sound_effects.place(x=50, y=80)
 
-    #reset_config = Label(image=resetConfigPicture, width=70, height=20, bd=0)
-    #reset_config.place(x=55, y=170)
+    reset_config = Label(image=resetConfigPicture, width=70, height=15, bd=0)
+    reset_config.place(x=56, y=132)
 
     volume = Label(text="Volume : ", font=("Segoe Script", 8), bd=0, bg="white")
     volume.place(x=25, y=160)
+
+    volume_value = Label(text=Utils.getSettingValue("volume"), font=("Segoe Script", 8), bd=0, bg="white")
+    volume_value.place(x=80, y=160)
 
     button_reduce = Button(image=reducePicture, bd=0, highlightthickness=0, padx=32, pady=28, command=reduceFrame)
     button_reduce.place(x=140, y=0)
@@ -153,8 +157,8 @@ def configGUI():
     button_toggle_sound_effects = Button(image=getPictureForButton("sound_effects"), bd=0, highlightthickness=0, padx=40, pady=40, command=toggleSoundEffects)
     button_toggle_sound_effects.place(x=25, y=80)
 
-    #button_reset_config = Button(image=resetConfigButtonPicture, bd=0, highlightthickness=0, padx=28, pady=28, command=resetConfig)
-    #button_reset_config.place(x=25, y=170)
+    button_reset_config = Button(image=resetConfigButtonPicture, bd=0, highlightthickness=0, padx=28, pady=28, command=resetConfig)
+    button_reset_config.place(x=26, y=131)
 
     volume_control = Scale(from_=1, to=100, orient=HORIZONTAL, length=140, width=10, bd=0, bg="#ba0308", activebackground="#ba0308", troughcolor="white",sliderrelief="flat", sliderlength=20, showvalue=0,  highlightthickness=2, highlightbackground="black", command=setVolume)
     volume_control.set(Utils.getSettingValue("volume"))

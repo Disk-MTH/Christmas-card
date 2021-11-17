@@ -66,8 +66,10 @@ def buttonClick(nameOfButton):
     click_sound = pygame.mixer.Sound(getResourcesPath() + "\\sounds\\click_sound.mp3")
     if getSettingValue("sound_effects"):
         if "day" in nameOfButton:
+            click_sound.set_volume(float((int(getSettingValue("volume")) / 100)))
             click_sound.play()
         else:
+            click_sound.set_volume(float((int(getSettingValue("volume")) / 100)))
             click_sound.play()
 
     elif not getSettingValue("sound_effects"):
@@ -83,11 +85,22 @@ def launchSounds(GUIThread):
     isMusicActive = False
     pygame.mixer.init()
     while GUIThread.is_alive():
-        if getSettingValue("music") == "enable" and isMusicActive is False:
+
+        with open(getResourcesPath() + "\\settings.txt", "r") as file:
+            lines = file.read().split()
+            isMusicEnable = False
+            if lines[2] == "enable":
+                isMusicEnable = True
+            elif lines[2] == "disable":
+                isMusicEnable = False
+            volume = lines[9]
+
+        pygame.mixer.music.set_volume(float((int(volume)/ 100)))
+        if isMusicEnable and not isMusicActive:
             pygame.mixer.music.load(getResourcesPath() + "\\sounds\\background_music.mp3")
             pygame.mixer.music.play()
             isMusicActive = True
-        if getSettingValue("music") == "disable" and isMusicActive is True:
+        elif not isMusicEnable and isMusicActive:
             pygame.mixer.music.stop()
             isMusicActive = False
         sleep(0.25)
