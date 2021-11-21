@@ -12,30 +12,18 @@ def configGUI():
     lastClickX = 0
     lastClickY = 0
 
-    #global is_music_enable
-    #if Utils.getSettingValue("music") == "enable":
-        #is_music_enable = True
-    #elif Utils.getSettingValue("music") == "disable":
-        #is_music_enable = False
+    backgroundPicture = PhotoImage(file=Utils.getResourcesPath("resources\\config_background.png"))
+    titleBarPicture = PhotoImage(file=Utils.getResourcesPath("resourgx ces\\config_title_bar.png"))
+    movePicture = PhotoImage(file=Utils.getResourcesPath("resources\\config_move.png"))
+    toggleMusicPicture = PhotoImage(file=Utils.getResourcesPath("resources\\config_toggle_music.png"))
+    toggleSoundEffectsPicture = PhotoImage(file=Utils.getResourcesPath("resources\\config_toggle_sound_effects.png"))
+    resetConfigPicture = PhotoImage(file=Utils.getResourcesPath("resources\\config_reset_config.png"))
 
-    #global are_sound_effects_enable
-    #if Utils.getSettingValue("sound_effects") == "enable":
-        #are_sound_effects_enable = True
-    #elif Utils.getSettingValue("sound_effects") == "disable":
-        #are_sound_effects_enable = False
-
-    backgroundPicture = PhotoImage(file=Utils.getResourcesPath() + "\\config_background.png")
-    titleBarPicture = PhotoImage(file=Utils.getResourcesPath() + "\\config_title_bar.png")
-    movePicture = PhotoImage(file=Utils.getResourcesPath() + "\\config_move.png")
-    toggleMusicPicture = PhotoImage(file=Utils.getResourcesPath() + "\\config_toggle_music.png")
-    toggleSoundEffectsPicture = PhotoImage(file=Utils.getResourcesPath() + "\\config_toggle_sound_effects.png")
-    resetConfigPicture = PhotoImage(file=Utils.getResourcesPath() + "\\config_reset_config.png")
-
-    reducePicture = PhotoImage(file=Utils.getResourcesPath() + "\\buttons\\config_reduce.png")
-    closePicture = PhotoImage(file=Utils.getResourcesPath() + "\\buttons\\config_close.png")
-    soundOnPicture = PhotoImage(file=Utils.getResourcesPath() + "\\buttons\\sound_on.png")
-    soundOffPicture = PhotoImage(file=Utils.getResourcesPath() + "\\buttons\\sound_off.png")
-    resetConfigButtonPicture = PhotoImage(file=Utils.getResourcesPath() + "\\buttons\\reset_config.png")
+    reducePicture = PhotoImage(file=Utils.getResourcesPath("resources\\buttons\\config_reduce.png"))
+    closePicture = PhotoImage(file=Utils.getResourcesPath("resources\\buttons\\config_close.png"))
+    soundOnPicture = PhotoImage(file=Utils.getResourcesPath("resources\\buttons\\sound_on.png"))
+    soundOffPicture = PhotoImage(file=Utils.getResourcesPath("resources\\buttons\\sound_off.png"))
+    resetConfigButtonPicture = PhotoImage(file=Utils.getResourcesPath("resources\\buttons\\reset_config.png"))
 
     #                Initialisation of some useful functions                #
 
@@ -114,6 +102,7 @@ def configGUI():
     root.wm_attributes("-topmost", 1)
     root.geometry("200x200")
     root.resizable(width=False, height=False)
+    root.iconbitmap(Utils.getResourcesPath("resources\\icons\\icon.ico"))
     root.bind("<Map>", mappedFrame)
 
     #                        Add components to frame                         #

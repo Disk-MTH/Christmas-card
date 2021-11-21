@@ -6,6 +6,11 @@ have the Pygame library that you can install with the following command: ```pip 
 from the way you installed python. I will do a short tutorial on how to properly 
 install python on windows soon.
 
+If you have or don't want to install the right version of python with the right 
+modules then download the latest build [here](https://github.com/Disk-MTH/Christmas-card/releases). This build is completely 
+autonomous, so no need for python. However, I won't be doing a build for 
+every commit so you may not have the latest news.
+
 ## Presentation
 This github repository is a project resulting from a work requested in a maths 
 lesson. The exercise was to make a little Christmas card drawn with a turtle but, 

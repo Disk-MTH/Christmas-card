@@ -1,12 +1,20 @@
 from time import sleep
 import pygame
 import MainGUI
+import os
+import sys
 
-def getResourcesPath() :
-    return "resources"
+def getResourcesPath(relativePath):
+    try:
+        t = relativePath.split("\\")[-1]
+        base_path = sys._MEIPASS
+        return os.path.join(base_path + "\\" + t)
+    except Exception:
+        base_path = os.path.abspath(".")
+        return os.path.join(base_path + "\\" + relativePath)
 
 def getSettingValue(settingToGet) :
-    with open(getResourcesPath() + "\\settings.txt", "r") as file:
+    with open(getResourcesPath("resources\\settings.txt"), "r") as file:
         lines = file.read().split()
         if settingToGet == "music":
             if lines[2] == "enable":
@@ -22,39 +30,39 @@ def getSettingValue(settingToGet) :
             return str(lines[9])
 
 def setSettingValue(settingToSet, value):
-    with open(getResourcesPath() + "\\settings.txt", "rt") as file:
+    with open(getResourcesPath("resources\\settings.txt"), "rt") as file:
         fileContent = file.read()
 
     if settingToSet == "music":
         if value == "toggleOn":
-            with open(getResourcesPath() + "\\settings.txt", "wt") as file:
+            with open(getResourcesPath("resources\\settings.txt"), "wt") as file:
                 fileContent = fileContent.replace("music : disable", "music : enable")
                 file.write(fileContent)
         elif value == "toggleOff":
-            with open(getResourcesPath() + "\\settings.txt", "wt") as file:
+            with open(getResourcesPath("resources\\settings.txt"), "wt") as file:
                 fileContent = fileContent.replace("music : enable", "music : disable")
                 file.write(fileContent)
 
     elif settingToSet == "sound_effects":
         if value == "toggleOn":
-            with open(getResourcesPath() + "\\settings.txt", "wt") as file:
+            with open(getResourcesPath("resources\\settings.txt"), "wt") as file:
                 fileContent = fileContent.replace("sound effects : disable", "sound effects : enable")
                 file.write(fileContent)
         elif value == "toggleOff":
-            with open(getResourcesPath() + "\\settings.txt", "wt") as file:
+            with open(getResourcesPath("resources\\settings.txt"), "wt") as file:
                 fileContent = fileContent.replace("sound effects : enable", "sound effects : disable")
                 file.write(fileContent)
 
     elif settingToSet == "volume":
-        with open(getResourcesPath() + "\\settings.txt", "r") as file:
+        with open(getResourcesPath("resources\\settings.txt"), "r") as file:
             lines = file.read().split()
             volume = lines[9]
-            with open(getResourcesPath() + "\\settings.txt", "wt") as file:
+            with open(getResourcesPath("resources\\settings.txt"), "wt") as file:
                 fileContent = fileContent.replace("volume : " + str(volume), "volume : " + str(value))
                 file.write(fileContent)
 
 def resetConfig():
-    with open(getResourcesPath() + "\\settings.txt", "wt") as file:
+    with open(getResourcesPath("resources\\settings.txt"), "wt") as file:
         defaultSettings = ["music : enable\n", "sound effects : enable\n", "volume : 80\n"]
         index = 0
         for i in range(len(defaultSettings)):
@@ -63,7 +71,7 @@ def resetConfig():
             index += 1
 
 def buttonClick(nameOfButton):
-    click_sound = pygame.mixer.Sound(getResourcesPath() + "\\sounds\\click_sound.mp3")
+    click_sound = pygame.mixer.Sound(getResourcesPath("resources\\sounds\\click_sound.mp3"))
     if getSettingValue("sound_effects"):
         if "day" in nameOfButton:
             click_sound.set_volume(float((int(getSettingValue("volume")) / 100)))
@@ -86,7 +94,7 @@ def launchSounds(GUIThread):
     pygame.mixer.init()
     while GUIThread.is_alive():
 
-        with open(getResourcesPath() + "\\settings.txt", "r") as file:
+        with open(getResourcesPath("resources\\settings.txt"), "r") as file:
             lines = file.read().split()
             isMusicEnable = False
             if lines[2] == "enable":
@@ -97,7 +105,7 @@ def launchSounds(GUIThread):
 
         pygame.mixer.music.set_volume(float((int(volume)/ 100)))
         if isMusicEnable and not isMusicActive:
-            pygame.mixer.music.load(getResourcesPath() + "\\sounds\\background_music.mp3")
+            pygame.mixer.music.load(getResourcesPath("resources\\sounds\\background_music.mp3"))
             pygame.mixer.music.play()
             isMusicActive = True
         elif not isMusicEnable and isMusicActive:
@@ -107,7 +115,7 @@ def launchSounds(GUIThread):
 
 def checkConfig(GUIThread):
     while GUIThread.is_alive():
-        with open(getResourcesPath() + "\\settings.txt", "r") as file:
+        with open(getResourcesPath("resources\\settings.txt"), "r") as file:
             lines = file.read().split()
             try:
                 if lines[0] + " " + lines[1] + " " != "music : ":
