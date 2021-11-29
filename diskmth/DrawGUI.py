@@ -1,7 +1,5 @@
-import tkinter
 from tkinter import *
 from turtle import TurtleScreen
-
 import Utils
 import MainGUI
 import Drawings
@@ -69,19 +67,19 @@ def drawGUI(daydate):
 
     try:
         if daydate == 1:
-            Drawings.title(drawArea, 25)
+            Drawings.title(drawArea, -100, 0, 25, False)
         if daydate == 2:
-            Drawings.fractalChristmasTree(drawArea, 30)
+            Drawings.snowStar(drawArea, 0, 0, 0.5, False)
         if daydate == 3:
-            Drawings.starStyle2(drawArea, 0.5)
+            Drawings.fractalChristmasTree(drawArea, 0, 0, 30, False)
         if daydate == 4:
-            Drawings.snowStar(drawArea, 0.5)
+            Drawings.starStyle2(drawArea, 0, 0, 0.5, False)
         if daydate == 5:
-            Drawings.snowMan(drawArea, 1)
+            Drawings.snowMan(drawArea, 0, -20, 1, False)
         if daydate == 6:
-            pass
+            Drawings.startStyle1(drawArea, -80, 30, 2, False)
         if daydate == 7:
-            pass
+            Drawings.geometricChristmasTree(drawArea, 0, 20, 1.5, "green", False)
         if daydate == 8:
             pass
         if daydate == 9:
@@ -89,6 +87,32 @@ def drawGUI(daydate):
         if daydate == 10:
             pass
         if daydate == 11:
+            pass
+        if daydate == 12:
+            pass
+        if daydate == 13:
+            pass
+        if daydate == 14:
+            pass
+        if daydate == 15:
+            pass
+        if daydate == 16:
+            pass
+        if daydate == 17:
+            pass
+        if daydate == 18:
+            pass
+        if daydate == 19:
+            pass
+        if daydate == 20:
+            pass
+        if daydate == 21:
+            pass
+        if daydate == 22:
+            pass
+        if daydate == 23:
+            pass
+        if daydate == 24:
             pass
 
     except:
