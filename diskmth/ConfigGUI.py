@@ -13,7 +13,7 @@ def configGUI():
     lastClickY = 0
 
     backgroundPicture = PhotoImage(file=Utils.getResourcesPath("resources\\config_background.png"))
-    titleBarPicture = PhotoImage(file=Utils.getResourcesPath("resourgx ces\\config_title_bar.png"))
+    titleBarPicture = PhotoImage(file=Utils.getResourcesPath("resources\\config_title_bar.png"))
     movePicture = PhotoImage(file=Utils.getResourcesPath("resources\\config_move.png"))
     toggleMusicPicture = PhotoImage(file=Utils.getResourcesPath("resources\\config_toggle_music.png"))
     toggleSoundEffectsPicture = PhotoImage(file=Utils.getResourcesPath("resources\\config_toggle_sound_effects.png"))
@@ -35,13 +35,13 @@ def configGUI():
         root.overrideredirect(True)
 
     def reduceFrame():
-        Utils.buttonClick("button_reduce")
+        Utils.buttonClick()
         root.state('withdrawn')
         root.overrideredirect(False)
         root.state('iconic')
 
     def closeFrame():
-        Utils.buttonClick("button_close")
+        Utils.buttonClick()
         root.destroy()
         MainGUI.mainGUI()
 
@@ -60,7 +60,7 @@ def configGUI():
         volume_value.config(text=Utils.getSettingValue("volume") + " %")
 
     def toggleMusic():
-        Utils.buttonClick("button_toggle_music")
+        Utils.buttonClick()
         if Utils.getSettingValue("music"):
             button_toggle_music.config(image=soundOffPicture)
             Utils.setSettingValue("music", "toggleOff")
@@ -69,7 +69,7 @@ def configGUI():
             Utils.setSettingValue("music", "toggleOn")
 
     def toggleSoundEffects():
-        Utils.buttonClick("button_toggle_sound_effects")
+        Utils.buttonClick()
         if Utils.getSettingValue("sound_effects"):
             button_toggle_sound_effects.config(image=soundOffPicture)
             Utils.setSettingValue("sound_effects", "toggleOff")
@@ -94,7 +94,7 @@ def configGUI():
                 return soundOffPicture
 
     def resetConfig():
-        Utils.buttonClick("button_reset_config")
+        Utils.buttonClick()
         Utils.resetConfig()
 
     #                      Set frame basics parameters                       #

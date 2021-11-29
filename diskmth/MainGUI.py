@@ -1,7 +1,7 @@
 from tkinter import *
 import Utils
 import ConfigGUI
-import Draw
+import DrawGUI
 
 def mainGUI():
 
@@ -17,7 +17,10 @@ def mainGUI():
     backgroundPicture = PhotoImage(file=Utils.getResourcesPath("resources\\main_background.png"))
     titleBarPicture = PhotoImage(file=Utils.getResourcesPath("resources\\main_title_bar.png"))
     movePicture = PhotoImage(file=Utils.getResourcesPath("resources\\main_move.png"))
-    creditsPicture = PhotoImage(file=Utils.getResourcesPath("resources\\main_credits.png"))
+    try:
+        creditsPicture = PhotoImage(file=Utils.getResourcesPath("resources\\main_credits.png"))
+    except TclError:
+        pass
 
     configPicture = PhotoImage(file=Utils.getResourcesPath("resources\\buttons\\main_config.png"))
     reducePicture = PhotoImage(file=Utils.getResourcesPath("resources\\buttons\\main_reduce.png"))
@@ -58,26 +61,28 @@ def mainGUI():
         root.overrideredirect(True)
 
     def reduceFrame():
-        Utils.buttonClick("button_reduce")
+        Utils.buttonClick()
         root.state('withdrawn')
         root.overrideredirect(False)
         root.state('iconic')
 
     def closeFrame():
-        Utils.buttonClick("button_close")
+        Utils.buttonClick()
         root.destroy()
 
     def openConfig():
-        Utils.buttonClick("button_config")
+        Utils.buttonClick()
         closeFrame()
         ConfigGUI.configGUI()
 
-    def test():
+    def openDrawGUI(daydate):
+        Utils.buttonClick()
         closeFrame()
-        Draw.day1draw()
+        DrawGUI.drawGUI(daydate)
 
-    def createAButton(image, command):
-        return Button(image=image, bd=0, highlightthickness=0, padx=67, pady=67, command=command)
+
+    def createAButton(image, dayDate):
+        return Button(image=image, bd=0, highlightthickness=0, padx=67, pady=67, command=lambda: openDrawGUI(dayDate))
 
     #                      Set frame basics parameters                       #
 
@@ -95,8 +100,11 @@ def mainGUI():
     titleBar = Label(image=titleBarPicture, width=1000, height=45, bd=0)
     titleBar.place(x=0, y=0)
 
-    credits = Label(image=creditsPicture, width=198, height=50, bd=0)
-    credits.place(x=800, y=600)
+    try:
+        credits = Label(image=creditsPicture, width=198, height=50, bd=0)
+        credits.place(x=800, y=600)
+    except UnboundLocalError:
+        pass
 
     moveArea = Label(image=movePicture, width=43, height=43, bd=0)
     moveArea.place(x=0, y=0)
@@ -111,76 +119,76 @@ def mainGUI():
     buttonClose = Button(image=closePicture, bd=0, highlightthickness=0, padx=40, pady=40, command=closeFrame)
     buttonClose.place(x=960, y=0)
 
-    buttonDay1 = createAButton(day1Picture, None)
+    buttonDay1 = createAButton(day1Picture, 1)
     buttonDay1.place(x=547, y=68)
 
-    buttonDay2 = createAButton(day2Picture, None)
+    buttonDay2 = createAButton(day2Picture, 2)
     buttonDay2.place(x=48, y=213)
 
-    buttonDay3 = createAButton(day3Picture, None)
+    buttonDay3 = createAButton(day3Picture, 3)
     buttonDay3.place(x=214, y=213)
 
-    buttonDay4 = createAButton(day4Picture, None)
+    buttonDay4 = createAButton(day4Picture, 4)
     buttonDay4.place(x=381, y=362)
 
-    buttonDay5 = createAButton(day5Picture, None)
+    buttonDay5 = createAButton(day5Picture, 5)
     buttonDay5.place(x=381, y=511)
 
-    buttonDay6 = createAButton(day6Picture, None)
+    buttonDay6 = createAButton(day6Picture, 6)
     buttonDay6.place(x=548, y=218)
 
-    buttonDay7 = createAButton(day7Picture, None)
+    buttonDay7 = createAButton(day7Picture, 7)
     buttonDay7.place(x=712, y=67)
 
-    buttonDay8 = createAButton(day8Picture, None)
+    buttonDay8 = createAButton(day8Picture, 8)
     buttonDay8.place(x=547, y=360)
 
-    buttonDay9 = createAButton(day9Picture, None)
+    buttonDay9 = createAButton(day9Picture, 9)
     buttonDay9.place(x=214, y=506)
 
-    buttonDay10 = createAButton(day10Picture, None)
+    buttonDay10 = createAButton(day10Picture, 10)
     buttonDay10.place(x=712, y=360)
 
-    buttonDay11 = createAButton(day11Picture, None)
+    buttonDay11 = createAButton(day11Picture, 11)
     buttonDay11.place(x=48, y=506)
 
-    buttonDay12 = createAButton(day12Picture, None)
+    buttonDay12 = createAButton(day12Picture, 12)
     buttonDay12.place(x=880, y=219)
 
-    buttonDay13 = createAButton(day13Picture, None)
+    buttonDay13 = createAButton(day13Picture, 13)
     buttonDay13.place(x=880, y=360)
 
-    buttonDay14 = createAButton(day14Picture, None)
+    buttonDay14 = createAButton(day14Picture, 14)
     buttonDay14.place(x=713, y=214)
 
-    buttonDay15 = createAButton(day15Picture, None)
+    buttonDay15 = createAButton(day15Picture, 15)
     buttonDay15.place(x=380, y=67)
 
-    buttonDay16 = createAButton(day16Picture, None)
+    buttonDay16 = createAButton(day16Picture, 16)
     buttonDay16.place(x=213, y=358)
 
-    buttonDay17 = createAButton(day17Picture, None)
+    buttonDay17 = createAButton(day17Picture, 17)
     buttonDay17.place(x=879, y=67)
 
-    buttonDay18 = createAButton(day18Picture, None)
+    buttonDay18 = createAButton(day18Picture, 18)
     buttonDay18.place(x=49, y=361)
 
-    buttonDay19 = createAButton(day19Picture, None)
+    buttonDay19 = createAButton(day19Picture, 19)
     buttonDay19.place(x=381, y=213)
 
-    buttonDay20 = createAButton(day20Picture, None)
+    buttonDay20 = createAButton(day20Picture, 20)
     buttonDay20.place(x=214, y=68)
 
-    buttonDay21 = createAButton(day21Picture, None)
+    buttonDay21 = createAButton(day21Picture, 21)
     buttonDay21.place(x=48, y=68)
 
-    buttonDay22 = createAButton(day22Picture, None)
+    buttonDay22 = createAButton(day22Picture, 22)
     buttonDay22.place(x=712, y=506)
 
-    buttonDay23 = createAButton(day23Picture, None)
+    buttonDay23 = createAButton(day23Picture, 23)
     buttonDay23.place(x=877, y=505)
 
-    buttonDay24 = createAButton(day24Picture, None)
+    buttonDay24 = createAButton(day24Picture, 24)
     buttonDay24.place(x=547, y=510)
 
     #                             Loop the frame                              #

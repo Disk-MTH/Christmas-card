@@ -70,21 +70,11 @@ def resetConfig():
             file.write(lineToWrite)
             index += 1
 
-def buttonClick(nameOfButton):
+def buttonClick():
     click_sound = pygame.mixer.Sound(getResourcesPath("resources\\sounds\\click_sound.mp3"))
     if getSettingValue("sound_effects"):
-        if "day" in nameOfButton:
-            click_sound.set_volume(float((int(getSettingValue("volume")) / 100)))
-            click_sound.play()
-        else:
-            click_sound.set_volume(float((int(getSettingValue("volume")) / 100)))
-            click_sound.play()
-
-    elif not getSettingValue("sound_effects"):
-        if "day" in nameOfButton:
-            pass
-        else:
-            pass
+        click_sound.set_volume(float((int(getSettingValue("volume")) / 100)))
+        click_sound.play()
 
 def launchGUI():
     MainGUI.mainGUI()
