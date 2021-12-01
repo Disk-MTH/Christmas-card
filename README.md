@@ -4,8 +4,7 @@ This project is not finished because I have no ideas of drawings to put behind t
 To launch the app you have just to double 
 click on [start.vbs](https://github.com/Disk-MTH/Christmas-card/blob/master/start.vbs) or launch [Main.py](https://github.com/Disk-MTH/Christmas-card/blob/master/diskmth/Main.py) with python. To use this program you must 
 have the Pygame library that you can install with the following command: ```pip install pygame```. If while running this command you get an error, it could come 
-from the way you installed python. I will do a short tutorial on how to properly 
-install python on windows soon.
+from the way you installed python. In this case sherch on web what goes wrong.
 
 If you have or don't want to install the right version of python with the right 
 modules then download the latest build [here](https://github.com/Disk-MTH/Christmas-card/releases). This build is completely 
