@@ -73,32 +73,22 @@ def drawStar(john, sideSize, drawColor, fillColor, isFillEnable):
         john.end_fill()
 
 
-def title(drawArea, startPosX, startPosY, fontSize, isFinalDraw):
+def title(drawArea, startPosX, startPosY, fontSize):
     john = turtle.RawTurtle(drawArea)
     john.hideturtle()
     john.speed(0)
 
-    if not isFinalDraw:
-        john.up()
-        john.goto(-170, 100)
-        john.write("Title : ", font=("Arial", 10, "bold"))
-    john.goto(startPosX, startPosY)
-    john.down()
+    goto(john, startPosX, startPosY)
 
     john.write("Merry christmas ! ", font=("Segoe script", fontSize, "bold"))
 
-def snowStar(drawArea, startPosX, startPosY, scale, isFinalDraw):
+def snowStar(drawArea, startPosX, startPosY, scale):
     colorList = ["cyan", "dark blue"]
     john = turtle.RawTurtle(drawArea)
     john.hideturtle()
     john.speed(0)
 
-    if not isFinalDraw:
-        john.up()
-        john.goto(-170, 100)
-        john.write("Snow star : ", font=("Arial", 10, "bold"))
-    john.goto(startPosX, startPosY)
-    john.down()
+    goto(john, startPosX, startPosY)
 
     for x in range(9):
         john.fillcolor(colorList[x%2])
@@ -124,17 +114,12 @@ def snowStar(drawArea, startPosX, startPosY, scale, isFinalDraw):
     john.forward(100 * scale)
     john.end_fill()
 
-def fractalChristmasTree(drawArea, startPosX, startPosY, scale, isFinalDraw):
+def fractalChristmasTree(drawArea, startPosX, startPosY, scale):
     john = turtle.RawTurtle(drawArea)
     john.hideturtle()
     john.speed(0)
 
-    if not isFinalDraw:
-        john.up()
-        john.goto(-170, 100)
-        john.write("Fractal Christmas tree : ", font=("Arial", 10, "bold"))
-    john.goto(startPosX, startPosY)
-    john.down()
+    goto(john, startPosX, startPosY)
 
     john.left(90)
     john.color("dark green")
@@ -153,16 +138,10 @@ def fractalChristmasTree(drawArea, startPosX, startPosY, scale, isFinalDraw):
 
     branch(15, scale)
 
-def startStyle1(drawArea, startPosX, startPosY, scale, isFinalDraw):
+def startStyle1(drawArea, startPosX, startPosY, scale):
     john = turtle.RawTurtle(drawArea)
     john.hideturtle()
     john.speed(0)
-
-    if not isFinalDraw:
-        john.up()
-        john.goto(-170, 100)
-        john.write("Star style 1 : ", font=("Arial", 10, "bold"))
-    john.down()
 
     goto(john, startPosX + 0 * scale, startPosY + 0 * scale)
     drawStar(john, 100 * scale, "yellow", "yellow", True)
@@ -171,18 +150,13 @@ def startStyle1(drawArea, startPosX, startPosY, scale, isFinalDraw):
     goto(john, startPosX + 20 * scale, startPosY - 6 * scale)
     drawStar(john, 60 * scale, "yellow", "yellow", True)
 
-def starStyle2(drawArea, startPosX, startPosY, scale, isFinalDraw):
+def starStyle2(drawArea, startPosX, startPosY, scale):
     colors = ['orange', 'yellow']
     john = turtle.RawTurtle(drawArea)
     john.hideturtle()
     john.speed(0)
 
-    if not isFinalDraw:
-        john.up()
-        john.goto(-170, 100)
-        john.write("Star style 2 : ", font=("Arial", 10, "bold"))
-    john.goto(startPosX, startPosY)
-    john.down()
+    goto(john, startPosX, startPosY)
 
     for x in range(200):
         john.pencolor(colors[x%2])
@@ -190,16 +164,10 @@ def starStyle2(drawArea, startPosX, startPosY, scale, isFinalDraw):
         john.forward(x * scale)
         john.left(59)
 
-def snowMan(drawArea, startPosX, startPosY, scale, isFinalDraw):
+def snowMan(drawArea, startPosX, startPosY, scale):
     john = turtle.RawTurtle(drawArea)
     john.hideturtle()
     john.speed(0)
-
-    if not isFinalDraw:
-        john.up()
-        john.goto(-170, 100)
-        john.write("Snow Man : ", font=("Arial", 10, "bold"))
-    john.down()
 
     #body
     goto(john, startPosX + 0 * scale, startPosY - 80 * scale)
@@ -265,16 +233,10 @@ def snowMan(drawArea, startPosX, startPosY, scale, isFinalDraw):
     goto(john, startPosX + 0 * scale, startPosY - 60 * scale)
     drawCircle(john, 2 * scale, "black", "black", True)
 
-def geometricChristmasTree(drawArea, startPosX, startPosY, scale, color, isFinalDraw):
+def geometricChristmasTree(drawArea, startPosX, startPosY, scale, color):
     john = turtle.RawTurtle(drawArea)
     john.hideturtle()
     john.speed(0)
-
-    if not isFinalDraw:
-        john.up()
-        john.goto(-170, 100)
-        john.write("Geometric Christmas tree : ", font=("Arial", 10, "bold"))
-    john.down()
 
     goto(john, startPosX + 0 * scale, startPosY + 0 * scale)
     drawTriangle(john, 30 * scale, color, color, True)
@@ -286,3 +248,27 @@ def geometricChristmasTree(drawArea, startPosX, startPosY, scale, color, isFinal
     goto(john, startPosX + 0 * scale, startPosY - 60 * scale)
     drawRectangle(john, 30 * scale, 15 * scale, "chocolate4", "chocolate4", True)
 
+def finalCard(drawArea, startPosX, startPosY):
+    john = turtle.RawTurtle(drawArea)
+    john.hideturtle()
+    john.speed(0)
+
+    goto(john, startPosX + 0, startPosY + 0)
+    drawRectangle(john, 600, 400, "#B6E7EE", "#B6E7EE", True)
+
+    title(drawArea, -200, 100, 15)
+
+    snowMan(drawArea, 0, -50, 1)
+    snowStar(drawArea, 0, -20, 0.1)
+
+    geometricChristmasTree(drawArea, 150, 125, 1, "green")
+    geometricChristmasTree(drawArea, 200, 75, 1, "green")
+    geometricChristmasTree(drawArea, 250, 100, 1, "green")
+
+    fractalChristmasTree(drawArea, -200, -100,  50)
+    starStyle2(drawArea, -200, 50, 0.1)
+
+    startStyle1(drawArea, -250, 150, 0.35)
+    startStyle1(drawArea, -125, -75, 0.35)
+    startStyle1(drawArea, 25, 150, 0.35)
+    startStyle1(drawArea, 175, -100, 0.35)

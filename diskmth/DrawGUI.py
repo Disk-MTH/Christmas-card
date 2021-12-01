@@ -67,53 +67,53 @@ def drawGUI(daydate):
 
     try:
         if daydate == 1:
-            Drawings.title(drawArea, -100, 0, 25, False)
-        if daydate == 2:
-            Drawings.snowStar(drawArea, 0, 0, 0.5, False)
-        if daydate == 3:
-            Drawings.fractalChristmasTree(drawArea, 0, 0, 30, False)
-        if daydate == 4:
-            Drawings.starStyle2(drawArea, 0, 0, 0.5, False)
-        if daydate == 5:
-            Drawings.snowMan(drawArea, 0, -20, 1, False)
-        if daydate == 6:
-            Drawings.startStyle1(drawArea, -80, 30, 2, False)
-        if daydate == 7:
-            Drawings.geometricChristmasTree(drawArea, 0, 20, 1.5, "green", False)
-        if daydate == 8:
+            Drawings.title(drawArea, -150, 0, 25)
+        elif daydate == 2:
+            Drawings.snowStar(drawArea, 0, 0, 0.5)
+        elif daydate == 3:
+            Drawings.fractalChristmasTree(drawArea, 0, 0, 30)
+        elif daydate == 4:
+            Drawings.starStyle2(drawArea, 0, 0, 0.5)
+        elif daydate == 5:
+            Drawings.snowMan(drawArea, 0, -20, 1)
+        elif daydate == 6:
+            Drawings.startStyle1(drawArea, -80, 30, 2)
+        elif daydate == 7:
+            Drawings.geometricChristmasTree(drawArea, 0, 20, 1.5, "green")
+        elif daydate == 8:
             pass
-        if daydate == 9:
+        elif daydate == 9:
             pass
-        if daydate == 10:
+        elif daydate == 10:
             pass
-        if daydate == 11:
+        elif daydate == 11:
             pass
-        if daydate == 12:
+        elif daydate == 12:
             pass
-        if daydate == 13:
+        elif daydate == 13:
             pass
-        if daydate == 14:
+        elif daydate == 14:
             pass
-        if daydate == 15:
+        elif daydate == 15:
             pass
-        if daydate == 16:
+        elif daydate == 16:
             pass
-        if daydate == 17:
+        elif daydate == 17:
             pass
-        if daydate == 18:
+        elif daydate == 18:
             pass
-        if daydate == 19:
+        elif daydate == 19:
             pass
-        if daydate == 20:
+        elif daydate == 20:
             pass
-        if daydate == 21:
+        elif daydate == 21:
             pass
-        if daydate == 22:
+        elif daydate == 22:
             pass
-        if daydate == 23:
+        elif daydate == 23:
             pass
-        if daydate == 24:
-            pass
+        elif daydate == 24:
+            Drawings.finalCard(drawArea, -300, -200)
 
     except:
         pass
